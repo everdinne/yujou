@@ -2,12 +2,12 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Everdinne – Data Scientist · Business · Philosophy</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,21 +19,45 @@
     body {
       font-family: 'Inter', sans-serif;
       background-color: #ffffff;
-      color: #1E3A8A; /* 深藍文字 */
+      color: #1E3A8A;
     }
 
     h1, h2, h3 {
       font-family: 'Merriweather', serif;
     }
 
-    /* Card hover effect */
-    .card-hover {
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    /* Hero gradient + subtle lines */
+    .hero-bg {
+      background: linear-gradient(180deg, #1E3A8A 0%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(30, 58, 138, 0.05) 0px,
+        rgba(30, 58, 138, 0.05) 2px,
+        transparent 2px,
+        transparent 20px
+      );
+      transform: rotate(20deg);
+      z-index: 0;
     }
 
+    /* Card hover with gold glow */
+    .card-hover {
+      transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    }
     .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(30, 58, 138, 0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(250, 204, 21, 0.3);
+      border-color: #FACC15;
     }
 
     /* Fade in animation */
@@ -41,16 +65,38 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .fade-up { animation: fadeInUp 1s ease-out both; }
 
-    .fade-up {
-      animation: fadeInUp 1s ease-out both;
-    }
-
-    /* 金色點綴 */
+    /* Gold accent */
     .accent-gold { color: #FACC15; }
     .bg-gold { background-color: #FACC15; }
     .border-gold { border-color: #FACC15; }
     .hover-bg-gold:hover { background-color: #D4AF37; }
+
+    /* Skill icon */
+    .skill-icon::before {
+      content: '•';
+      color: #FACC15;
+      display: inline-block;
+      width: 1ch;
+      margin-right: 0.25rem;
+    }
+
+    /* Buttons hover glow */
+    .btn-gold {
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(250, 204, 21, 0.4);
+    }
+
+    /* Text adjustments */
+    h1 { font-size: 3rem; font-weight: 700; line-height: 1.2; }
+    h2 { font-size: 2.25rem; font-weight: 600; line-height: 1.3; }
+    h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
+    p, li { font-size: 1rem; line-height: 1.6; }
+    .tag-sm { font-size: 0.875rem; letter-spacing: 0.5px; }
   </style>
 </head>
 
@@ -77,108 +123,77 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="py-28 px-6 text-center">
-    <h1 class="text-4xl md:text-5xl font-serif font-semibold mb-4">Everdinne</h1>
-    <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-700 mb-6">
+  <section class="hero-bg py-28 px-6 relative text-center">
+    <h1 class="relative z-10">Everdinne</h1>
+    <p class="max-w-2xl mx-auto text-gray-700 relative z-10 mb-6">
       Data Scientist · Business Strategist · Philosopher of Systems · Legal Enthusiast
     </p>
-    <img src="images/207711730.jpg" alt="Everdinne Profile" class="w-28 h-28 mx-auto mb-6 rounded-full border-2 border-1E3A8A shadow-lg" />
-    <div class="flex justify-center gap-3 text-gray-700">
-      <span class="border border-1E3A8A rounded-full px-3 py-1 text-sm">Data Science</span>
-      <span class="border border-1E3A8A rounded-full px-3 py-1 text-sm">Business Strategy</span>
-      <span class="border border-1E3A8A rounded-full px-3 py-1 text-sm">Philosophy & Law</span>
+    <img src="images/207711730.jpg" alt="Everdinne Profile" class="w-28 h-28 mx-auto mb-6 rounded-full border-2 border-1E3A8A shadow-lg relative z-10">
+    <div class="flex justify-center gap-3 text-gray-700 relative z-10">
+      <span class="border border-1E3A8A rounded-full px-3 py-1 tag-sm">Data Science</span>
+      <span class="border border-1E3A8A rounded-full px-3 py-1 tag-sm">Business Strategy</span>
+      <span class="border border-1E3A8A rounded-full px-3 py-1 tag-sm">Philosophy & Law</span>
     </div>
   </section>
 
   <!-- Experience Section -->
   <section class="py-24 px-6">
-    <h2 class="text-3xl font-serif font-semibold text-center mb-12">Experience</h2>
+    <h2 class="text-center mb-12">Experience</h2>
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
       <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="font-semibold text-xl mb-2">2024 – Present · Indie Builder / Creative Technologist</h3>
+        <h3 class="mb-2">2024 – Present · Indie Builder / Creative Technologist</h3>
         <p class="text-gray-700 mb-3">Developing GPT-powered tools, automation workflows, and professional interfaces.</p>
-        <div class="flex flex-wrap gap-2 text-sm text-gray-700">
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">OpenAI API</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Workflow Design</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">System Thinking</span>
-        </div>
+        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">OpenAI API</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Workflow Design</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">System Thinking</li>
+        </ul>
       </div>
       <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="font-semibold text-xl mb-2">2022 – 2023 · Data Intern @ Fictional Lab</h3>
+        <h3 class="mb-2">2022 – 2023 · Data Intern @ Fictional Lab</h3>
         <p class="text-gray-700 mb-3">Analyzed unstructured data, built ML pipelines, and derived actionable insights.</p>
-        <div class="flex flex-wrap gap-2 text-sm text-gray-700">
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Python</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">ML Pipelines</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Business Insights</span>
-        </div>
+        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Python</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">ML Pipelines</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Business Insights</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section class="py-24 px-6 bg-gray-50">
-    <h2 class="text-3xl font-serif font-semibold text-center mb-12">Projects</h2>
+    <h2 class="text-center mb-12">Projects</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="text-xl font-semibold mb-2">Sales Dashboard</h3>
+        <h3 class="mb-2">Sales Dashboard</h3>
         <p class="text-gray-700 mb-4">Interactive dashboard tracking KPIs across multiple regions.</p>
-        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700">
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Python</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Pandas</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Business Analytics</span>
-        </div>
+        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Python</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Pandas</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Business Analytics</li>
+        </ul>
         <a href="#" class="text-gold hover:underline">View on GitHub →</a>
       </div>
       <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="text-xl font-semibold mb-2">Customer Churn Prediction</h3>
+        <h3 class="mb-2">Customer Churn Prediction</h3>
         <p class="text-gray-700 mb-4">ML model predicting customer churn to improve retention strategy.</p>
-        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700">
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Python</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Scikit-Learn</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Business Strategy</span>
-        </div>
+        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Python</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Scikit-Learn</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Business Strategy</li>
+        </ul>
         <a href="#" class="text-gold hover:underline">View on GitHub →</a>
       </div>
       <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="text-xl font-semibold mb-2">GPT Automation Toolkit</h3>
+        <h3 class="mb-2">GPT Automation Toolkit</h3>
         <p class="text-gray-700 mb-4">Automating business workflows using GPT APIs.</p>
-        <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-700">
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">GPT-4 API</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">Automation</span>
-          <span class="px-2 py-1 rounded-full border border-1E3A8A">System Thinking</span>
-        </div>
+        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">GPT-4 API</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Automation</li>
+          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">System Thinking</li>
+        </ul>
         <a href="#" class="text-gold hover:underline">View on GitHub →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section class="py-24 px-6">
-    <h2 class="text-3xl font-serif font-semibold text-center mb-12">Skills & Tools</h2>
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover">
-        <h3 class="text-lg font-semibold mb-2">Data & AI</h3>
-        <ul class="text-gray-700 list-disc list-inside space-y-1">
-          <li>Python · Pandas · NumPy</li>
-          <li>Scikit-Learn · ML Pipelines</li>
-          <li>LangChain · GPT APIs</li>
-        </ul>
-      </div>
-      <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover">
-        <h3 class="text-lg font-semibold mb-2">Business & Strategy</h3>
-        <ul class="text-gray-700 list-disc list-inside space-y-1">
-          <li>Market Analysis · KPIs</li>
-          <li>Workflow Optimization</li>
-          <li>Data-Driven Decision Making</li>
-        </ul>
-      </div>
-      <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover">
-        <h3 class="text-lg font-semibold mb-2">Philosophy & Law</h3>
-        <ul class="text-gray-700 list-disc list-inside space-y-1">
-          <li>Ethics in AI & Systems Thinking</li>
-          <li>Legal Compliance & Policy</li>
-          <li>Philosophy of Technology</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -186,7 +201,7 @@
   <!-- Contact Section -->
   <section class="text-center py-20 px-6 bg-gray-50">
     <p class="text-gray-700 mb-4">Interested in collaborating or exploring ideas?</p>
-    <a href="mailto:you@example.com" class="inline-block mt-4 px-6 py-3 rounded-full bg-gold text-white hover-bg-gold transition shadow-md">✉️ Get in touch</a>
+    <a href="mailto:you@example.com" class="inline-block mt-4 px-6 py-3 rounded-full bg-gold text-white btn-gold">✉️ Get in touch</a>
   </section>
 
   <!-- Footer -->
@@ -194,7 +209,7 @@
     © 2026 Everdinne — Multi-disciplinary Lab
   </footer>
 
-  <!-- Theme Toggle + GSAP Animations -->
+  <!-- GSAP Animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
@@ -222,6 +237,6 @@
     setTheme(stored || (prefersDark ? 'dark' : 'light'));
     themeBtn.addEventListener('click', () => { setTheme(root.classList.contains('dark') ? 'light' : 'dark'); });
   </script>
-
 </body>
 </html>
+
