@@ -122,9 +122,10 @@
 
 <body>
 
-<!-- Header -->
+<!-- HEADER / NAV -->
 <header class="w-full px-6 py-5 bg-white/90 dark:bg-[#0B1220]/90 backdrop-blur border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto flex justify-between items-center">
+
     <!-- Logo / Identity -->
     <div class="flex items-center space-x-3">
       <div class="w-3 h-3 rounded-full bg-gradient-to-br from-yellow-400 to-blue-800"></div>
@@ -148,6 +149,85 @@
     </nav>
   </div>
 </header>
+
+<!-- DARK MODE JS -->
+<script>
+const root = document.documentElement;
+const themeBtn = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeLabel = document.getElementById('themeLabel');
+
+// 初始化 theme
+const stored = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if(stored === 'dark'){
+  root.classList.add('dark');
+} else if(stored === 'light'){
+  root.classList.remove('dark');
+} else {
+  // 沒有存值 → 用系統偏好
+  root.classList.toggle('dark', prefersDark);
+}
+
+// 更新按鈕顯示
+themeIcon.textContent = root.classList.contains('dark') ? '☀️' : '🌙';
+themeLabel.textContent = root.classList.contains('dark') ? 'Light' : 'Dark';
+
+// 切換按鈕事件
+themeBtn.addEventListener('click', () => {
+  const isDark = root.classList.contains('dark');
+  root.classList.toggle('dark', !isDark);
+  themeIcon.textContent = !isDark ? '☀️' : '🌙';
+  themeLabel.textContent = !isDark ? 'Light' : 'Dark';
+  localStorage.setItem('theme', !isDark ? 'dark' : 'light');
+});
+</script>
+
+<!-- DARK MODE CASE STUDIES / PROJECTS -->
+<style>
+/* ===== Dark Mode Overrides ===== */
+.dark .border-gray-200 {
+  border-color: #1F2937;
+}
+
+.dark .text-gray-400 {
+  color: #9CA3AF;
+}
+
+.dark .text-gray-600 {
+  color: #D1D5DB;
+}
+
+.dark .text-gray-800 {
+  color: #F3F4F6;
+}
+
+.dark .card {
+  background-color: #0F172A;
+  border-color: #1F2937;
+}
+
+.dark .card:hover {
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+}
+
+/* 可選：Case Studies 文章標題略亮 */
+.dark article h3 {
+  color: #F3F4F6;
+}
+
+/* Case Studies 正文 */
+.dark article p {
+  color: #D1D5DB;
+}
+
+/* Case Studies 強調文字 */
+.dark article span.font-medium {
+  color: #F3F4F6;
+}
+</style>
+
 
 
 <!-- HERO / MANIFESTO -->
@@ -317,27 +397,37 @@
 </footer>
 
   <!-- JS -->
+<!-- DARK MODE JS -->
 <script>
 const root = document.documentElement;
 const themeBtn = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const themeLabel = document.getElementById('themeLabel');
 
-function setTheme(mode){
-  root.classList.toggle('dark', mode==='dark');
-  themeIcon.textContent = mode==='dark' ? '☀️' : '🌙';
-  themeLabel.textContent = mode==='dark' ? 'Light' : 'Dark';
-  localStorage.setItem('theme', mode);
-}
-
-// 初始化
+// 初始化 theme
 const stored = localStorage.getItem('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-setTheme(stored || (prefersDark?'dark':'light'));
 
-// 切換
+if(stored === 'dark'){
+  root.classList.add('dark');
+} else if(stored === 'light'){
+  root.classList.remove('dark');
+} else {
+  // 沒有存值 → 用系統偏好
+  root.classList.toggle('dark', prefersDark);
+}
+
+// 更新按鈕顯示
+themeIcon.textContent = root.classList.contains('dark') ? '☀️' : '🌙';
+themeLabel.textContent = root.classList.contains('dark') ? 'Light' : 'Dark';
+
+// 切換按鈕事件
 themeBtn.addEventListener('click', () => {
-  setTheme(root.classList.contains('dark') ? 'light' : 'dark');
+  const isDark = root.classList.contains('dark');
+  root.classList.toggle('dark', !isDark);
+  themeIcon.textContent = !isDark ? '☀️' : '🌙';
+  themeLabel.textContent = !isDark ? 'Light' : 'Dark';
+  localStorage.setItem('theme', !isDark ? 'dark' : 'light');
 });
 </script>
 
