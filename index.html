@@ -12,27 +12,46 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #FAFAF9;
-      color: #0F1E3A;
-    }
+  /* ---------- Base ---------- */
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FAFAF9;
+    color: #0F1E3A;
+    font-size: 16px;
+    line-height: 1.75; /* 全站基準行高 */
+  }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-    }
+  /* ---------- Headings ---------- */
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.02em; /* 收緊一點，學術感 */
+  }
 
-    .gold { color: #C9A24D; }
-    .border-gold { border-color: #C9A24D; }
+  /* ---------- Text ---------- */
+  p {
+    color: #4B5563; /* Tailwind gray-600，閱讀友善 */
+  }
 
-    .card {
-      transition: transform .4s ease, box-shadow .4s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(15, 30, 58, 0.12);
-    }
-  </style>
+  /* ---------- Accent ---------- */
+  .gold {
+    color: #C9A24D;
+  }
+
+  .border-gold {
+    border-color: #C9A24D;
+  }
+
+  /* ---------- Cards & Hover ---------- */
+  .card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(15, 30, 58, 0.12);
+  }
+</style>
+
 </head>
 
 <body>
