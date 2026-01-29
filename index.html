@@ -106,6 +106,10 @@
       Paris · Taipei
     </div>
   </div>
+<button id="themeToggle"
+  class="text-xs tracking-widest uppercase text-gray-400 hover:text-gray-600 transition">
+  Dark
+</button>
 </header>
 
 <!-- HERO / MANIFESTO -->
@@ -273,6 +277,25 @@
 <footer class="text-center text-xs text-gray-400 pb-10">
   © 2026 Everdinne
 </footer>
+
+  <!-- JS -->
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme === 'dark') {
+    root.classList.add('dark');
+  }
+
+  toggle.addEventListener('click', () => {
+    root.classList.toggle('dark');
+    localStorage.setItem(
+      'theme',
+      root.classList.contains('dark') ? 'dark' : 'light'
+    );
+  });
+</script>
 
 </body>
 </html>
