@@ -1,242 +1,146 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Everdinne – Data Scientist · Business · Philosophy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Everdinne — Data Scientist</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class' }
-  </script>
 
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #1E3A8A;
+      background-color: #FAFAF9;
+      color: #0F1E3A;
     }
 
     h1, h2, h3 {
-      font-family: 'Merriweather', serif;
+      font-family: 'Playfair Display', serif;
     }
 
-    /* Hero gradient + subtle lines */
-    .hero-bg {
-      background: linear-gradient(180deg, #1E3A8A 0%, #ffffff 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-bg::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(30, 58, 138, 0.05) 0px,
-        rgba(30, 58, 138, 0.05) 2px,
-        transparent 2px,
-        transparent 20px
-      );
-      transform: rotate(20deg);
-      z-index: 0;
-    }
+    .gold { color: #C9A24D; }
+    .border-gold { border-color: #C9A24D; }
 
-    /* Card hover with gold glow */
-    .card-hover {
-      transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    .card {
+      transition: transform .4s ease, box-shadow .4s ease;
     }
-    .card-hover:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(250, 204, 21, 0.3);
-      border-color: #FACC15;
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(15, 30, 58, 0.12);
     }
-
-    /* Fade in animation */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-up { animation: fadeInUp 1s ease-out both; }
-
-    /* Gold accent */
-    .accent-gold { color: #FACC15; }
-    .bg-gold { background-color: #FACC15; }
-    .border-gold { border-color: #FACC15; }
-    .hover-bg-gold:hover { background-color: #D4AF37; }
-
-    /* Skill icon */
-    .skill-icon::before {
-      content: '•';
-      color: #FACC15;
-      display: inline-block;
-      width: 1ch;
-      margin-right: 0.25rem;
-    }
-
-    /* Buttons hover glow */
-    .btn-gold {
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-    .btn-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(250, 204, 21, 0.4);
-    }
-
-    /* Text adjustments */
-    h1 { font-size: 3rem; font-weight: 700; line-height: 1.2; }
-    h2 { font-size: 2.25rem; font-weight: 600; line-height: 1.3; }
-    h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
-    p, li { font-size: 1rem; line-height: 1.6; }
-    .tag-sm { font-size: 0.875rem; letter-spacing: 0.5px; }
   </style>
 </head>
 
-<body class="transition-colors duration-300">
+<body>
 
-  <!-- Header -->
-  <header class="w-full px-6 py-5 bg-white border-b border-gray-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <div class="w-3 h-3 rounded-full bg-gold"></div>
-        <div class="flex flex-col leading-tight">
-          <span class="text-lg font-semibold tracking-tight">E.Lab</span>
-          <span class="text-xs text-gray-500 tracking-wider">Data · Business · Systems</span>
-        </div>
-      </div>
-      <nav class="flex items-center gap-4 text-sm text-gray-600">
-        <a href="#" class="hover:text-1E3A8A transition">← Home</a>
-        <a href="#" class="hover:text-1E3A8A transition">→ Projects</a>
-        <button id="themeToggle" class="text-sm px-3 py-2 border rounded-md border-gray-300 hover:bg-gray-100 transition flex items-center gap-2">
-          <span id="themeIcon">🌙</span>
-        </button>
-      </nav>
+<!-- Header -->
+<header class="max-w-5xl mx-auto px-6 pt-12 pb-6">
+  <div class="flex justify-between items-end">
+    <div>
+      <p class="text-sm tracking-widest text-gray-500 uppercase">Everdinne</p>
+      <p class="text-xs text-gray-400">Data Science · Systems · Strategy</p>
     </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero-bg py-28 px-6 relative text-center">
-    <h1 class="relative z-10">Everdinne</h1>
-    <p class="max-w-2xl mx-auto text-gray-700 relative z-10 mb-6">
-      Data Scientist · Business Strategist · Philosopher of Systems · Legal Enthusiast
-    </p>
-    <img src="images/207711730.jpg" alt="Everdinne Profile" class="w-28 h-28 mx-auto mb-6 rounded-full border-2 border-1E3A8A shadow-lg relative z-10">
-    <div class="flex justify-center gap-3 text-gray-700 relative z-10">
-      <span class="border border-1E3A8A rounded-full px-3 py-1 tag-sm">Data Science</span>
-      <span class="border border-1E3A8A rounded-full px-3 py-1 tag-sm">Business Strategy</span>
-      <span class="border border-1E3A8A rounded-full px-3 py-1 tag-sm">Philosophy & Law</span>
+    <div class="text-xs text-gray-400">
+      Paris · Taipei
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- Experience Section -->
-  <section class="py-24 px-6">
-    <h2 class="text-center mb-12">Experience</h2>
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-      <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="mb-2">2024 – Present · Indie Builder / Creative Technologist</h3>
-        <p class="text-gray-700 mb-3">Developing GPT-powered tools, automation workflows, and professional interfaces.</p>
-        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">OpenAI API</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Workflow Design</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">System Thinking</li>
-        </ul>
-      </div>
-      <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="mb-2">2022 – 2023 · Data Intern @ Fictional Lab</h3>
-        <p class="text-gray-700 mb-3">Analyzed unstructured data, built ML pipelines, and derived actionable insights.</p>
-        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Python</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">ML Pipelines</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Business Insights</li>
-        </ul>
-      </div>
+<!-- Hero -->
+<section class="max-w-5xl mx-auto px-6 py-24">
+  <h1 class="text-4xl md:text-5xl leading-tight mb-8">
+    I work at the intersection of <br>
+    <span class="gold">data, business, and systems thinking.</span>
+  </h1>
+  <p class="max-w-xl text-lg text-gray-600 leading-relaxed">
+    Trained in business and data science, I focus on building rigorous analytical
+    frameworks that connect quantitative insight with strategic decision-making.
+  </p>
+</section>
+
+<!-- Philosophy -->
+<section class="max-w-5xl mx-auto px-6 py-20 border-t border-gray-200">
+  <h2 class="text-2xl mb-6">Approach</h2>
+  <p class="max-w-2xl text-gray-600 leading-relaxed">
+    I believe data is not about prediction alone, but about understanding systems.
+    My work emphasizes clarity, structure, and intellectual honesty —
+    influenced by business school rigor and philosophical inquiry.
+  </p>
+</section>
+
+<!-- Experience -->
+<section class="max-w-5xl mx-auto px-6 py-20 border-t border-gray-200">
+  <h2 class="text-2xl mb-10">Experience</h2>
+
+  <div class="space-y-10">
+    <div>
+      <p class="text-sm text-gray-400">2024 — Present</p>
+      <h3 class="text-xl">Independent Researcher & Builder</h3>
+      <p class="text-gray-600 mt-2 max-w-2xl">
+        Designing data-driven systems, GPT-based tools, and analytical workflows
+        bridging business strategy and machine intelligence.
+      </p>
     </div>
-  </section>
 
-  <!-- Projects Section -->
-  <section class="py-24 px-6 bg-gray-50">
-    <h2 class="text-center mb-12">Projects</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="mb-2">Sales Dashboard</h3>
-        <p class="text-gray-700 mb-4">Interactive dashboard tracking KPIs across multiple regions.</p>
-        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Python</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Pandas</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Business Analytics</li>
-        </ul>
-        <a href="#" class="text-gold hover:underline">View on GitHub →</a>
-      </div>
-      <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="mb-2">Customer Churn Prediction</h3>
-        <p class="text-gray-700 mb-4">ML model predicting customer churn to improve retention strategy.</p>
-        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Python</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Scikit-Learn</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Business Strategy</li>
-        </ul>
-        <a href="#" class="text-gold hover:underline">View on GitHub →</a>
-      </div>
-      <div class="p-6 bg-white rounded-xl border border-1E3A8A shadow-md card-hover fade-up">
-        <h3 class="mb-2">GPT Automation Toolkit</h3>
-        <p class="text-gray-700 mb-4">Automating business workflows using GPT APIs.</p>
-        <ul class="flex flex-wrap gap-2 text-sm text-gray-700">
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">GPT-4 API</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">Automation</li>
-          <li class="skill-icon px-2 py-1 border border-1E3A8A rounded-full">System Thinking</li>
-        </ul>
-        <a href="#" class="text-gold hover:underline">View on GitHub →</a>
-      </div>
+    <div>
+      <p class="text-sm text-gray-400">2022 — 2023</p>
+      <h3 class="text-xl">Data Intern · Research Lab</h3>
+      <p class="text-gray-600 mt-2 max-w-2xl">
+        Worked on machine learning pipelines, exploratory analysis,
+        and translating unstructured data into actionable insights.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact Section -->
-  <section class="text-center py-20 px-6 bg-gray-50">
-    <p class="text-gray-700 mb-4">Interested in collaborating or exploring ideas?</p>
-    <a href="mailto:you@example.com" class="inline-block mt-4 px-6 py-3 rounded-full bg-gold text-white btn-gold">✉️ Get in touch</a>
-  </section>
+<!-- Projects -->
+<section class="max-w-5xl mx-auto px-6 py-20 border-t border-gray-200">
+  <h2 class="text-2xl mb-10">Selected Projects</h2>
 
-  <!-- Footer -->
-  <footer class="bg-white py-10 px-4 border-t border-gray-200 text-gray-500 text-sm text-center transition-colors duration-500">
-    © 2026 Everdinne — Multi-disciplinary Lab
-  </footer>
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="card p-6 bg-white border border-gray-200">
+      <h3 class="text-lg mb-2">Sales Analytics System</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        KPI modeling and dashboard design for multi-region performance analysis.
+      </p>
+      <p class="text-xs text-gray-400">Python · Pandas · Strategy</p>
+    </div>
 
-  <!-- GSAP Animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray('.fade-up').forEach(el => {
-      gsap.from(el, {
-        scrollTrigger: { trigger: el, start: "top 90%" },
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        ease: "power3.out"
-      });
-    });
+    <div class="card p-6 bg-white border border-gray-200">
+      <h3 class="text-lg mb-2">Customer Churn Modeling</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Predictive modeling to support long-term retention strategy.
+      </p>
+      <p class="text-xs text-gray-400">Machine Learning · Business Insight</p>
+    </div>
+  </div>
+</section>
 
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeToggle');
-    const icon = document.getElementById('themeIcon');
-    const setTheme = mode => {
-      root.classList.toggle('dark', mode === 'dark');
-      icon.textContent = mode === 'dark' ? '🌞' : '🌙';
-      localStorage.setItem('theme', mode);
-    };
-    const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setTheme(stored || (prefersDark ? 'dark' : 'light'));
-    themeBtn.addEventListener('click', () => { setTheme(root.classList.contains('dark') ? 'light' : 'dark'); });
-  </script>
+<!-- Skills -->
+<section class="max-w-5xl mx-auto px-6 py-20 border-t border-gray-200">
+  <h2 class="text-2xl mb-8">Expertise</h2>
+  <p class="text-gray-600 max-w-2xl">
+    Data Science · Machine Learning · Business Strategy · Systems Thinking ·
+    Ethics in Technology
+  </p>
+</section>
+
+<!-- Contact -->
+<section class="max-w-5xl mx-auto px-6 py-24 border-t border-gray-200">
+  <p class="text-gray-600 mb-4">For collaboration or academic discussion:</p>
+  <a href="mailto:you@example.com" class="text-lg gold hover:underline">
+    you@example.com
+  </a>
+</section>
+
+<footer class="text-center text-xs text-gray-400 pb-10">
+  © 2026 Everdinne
+</footer>
+
 </body>
 </html>
 
