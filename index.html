@@ -145,23 +145,65 @@ p {
   </div>
 </section>
 
-<!-- Projects / Case Studies  -->
+<!-- Projects / Case Studies (升級版) -->
 <section id="projects" class="bg-gray-50 dark:bg-[#0F172A] max-w-5xl mx-auto px-6 py-24 rounded-xl my-8">
   <h2 class="text-2xl mb-12 tracking-tight">Selected Case Studies</h2>
 
   <div class="grid md:grid-cols-2 gap-10">
 
     <!-- Case Study 1 -->
-    <article class="card relative group">
-      <!-- icon -->
+    <article class="card relative group overflow-hidden">
+      <!-- 圖片縮略圖 -->
+      <img src="thumbnail1.png" alt="Customer Churn Analysis" class="w-full h-40 object-cover rounded mb-4">
+
+      <!-- 技術標籤 / icon -->
       <div class="absolute top-4 right-4 flex gap-2">
-        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">Python</span>
-        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">Power BI</span>
+        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded flex items-center gap-1">
+          <svg class="w-3 h-3 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+          Python
+        </span>
+        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded flex items-center gap-1">
+          <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 24 24"><rect width="10" height="10"/></svg>
+          Power BI
+        </span>
+      </div>
+
+      <!-- 標題 -->
+      <h3 class="text-xl mb-4 tracking-tight pr-24">
+        Customer Churn Analysis for Retention Strategy
+      </h3>
+
+      <!-- 摘要 -->
+      <div class="space-y-3">
+        <p><span class="font-medium text-gray-800 dark:text-gray-100">Context.</span> Retention decisions were driven by intuition rather than systematic analysis of customer behavior.</p>
+        <p><span class="font-medium text-gray-800 dark:text-gray-100">Approach.</span> Built a predictive model combined with cohort analysis to identify structural churn drivers.</p>
+        <p><span class="font-medium text-gray-800 dark:text-gray-100">Insight.</span> The analysis highlighted specific lifecycle moments where targeted intervention was most effective.</p>
+      </div>
+
+      <!-- PDF / GitHub -->
+      <a href="example-report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 text-sm gold border border-gold rounded hover:bg-gold hover:text-white transition transform group-hover:scale-105">
+        View Full Report
+      </a>
+    </article>
+
+    <!-- Case Study 2 -->
+    <article class="card relative group overflow-hidden">
+      <img src="thumbnail2.png" alt="Sales Performance" class="w-full h-40 object-cover rounded mb-4">
+
+      <div class="absolute top-4 right-4 flex gap-2">
+        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded flex items-center gap-1">
+          <svg class="w-3 h-3 text-purple-500" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+          ML
+        </span>
+        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded flex items-center gap-1">
+          <svg class="w-3 h-3 text-orange-500" fill="currentColor" viewBox="0 0 24 24"><rect width="10" height="10"/></svg>
+          Analytics
+        </span>
       </div>
 
       <h3 class="text-xl mb-4 tracking-tight pr-24">
-  Customer Churn Analysis for Retention Strategy
-</h3>
+        Sales Performance Modeling for Multi-Region Operations
+      </h3>
 
       <div class="space-y-3">
         <p><span class="font-medium text-gray-800 dark:text-gray-100">Context.</span> A multi-region business faced difficulty aligning operational KPIs with strategic decision-making across markets.</p>
@@ -169,50 +211,40 @@ p {
         <p><span class="font-medium text-gray-800 dark:text-gray-100">Insight.</span> The model clarified trade-offs between short-term efficiency and long-term strategic investment.</p>
       </div>
 
-      <!-- PDF / GitHub -->
-      <a href="example-report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 text-sm gold border border-gold rounded hover:bg-gold hover:text-white transition">View Full Report</a>
-    </article>
-
-    <!-- Case Study 2 -->
-    <article class="card relative group">
-      <div class="absolute top-4 right-4 flex gap-2">
-        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">ML</span>
-        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">Analytics</span>
-      </div>
-
-  <h3 class="text-xl mb-4 tracking-tight pr-24">
-  Sales Performance Modeling for Multi-Region Operations
-</h3>
-
-
-      <div class="space-y-3">
-        <p><span class="font-medium text-gray-800 dark:text-gray-100">Context.</span> Retention decisions were driven by intuition rather than systematic analysis of customer behavior.</p>
-        <p><span class="font-medium text-gray-800 dark:text-gray-100">Approach.</span> Built a predictive model combined with cohort analysis to identify structural churn drivers.</p>
-        <p><span class="font-medium text-gray-800 dark:text-gray-100">Insight.</span> Highlighted specific lifecycle moments where targeted intervention was most effective.</p>
-      </div>
-
-      <a href="example-report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 text-sm gold border border-gold rounded hover:bg-gold hover:text-white transition">View Full Report</a>
+      <a href="example-report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 text-sm gold border border-gold rounded hover:bg-gold hover:text-white transition transform group-hover:scale-105">
+        View Full Report
+      </a>
     </article>
 
     <!-- Case Study 3 -->
-    <article class="card relative group opacity-70">
+    <article class="card relative group opacity-70 overflow-hidden">
+      <img src="thumbnail3.png" alt="GPT Workflow Automation" class="w-full h-40 object-cover rounded mb-4">
+
       <div class="absolute top-4 right-4 flex gap-2">
-        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">LLM</span>
-        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">Systems</span>
+        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded flex items-center gap-1">
+          <svg class="w-3 h-3 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+          LLM
+        </span>
+        <span class="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded flex items-center gap-1">
+          <svg class="w-3 h-3 text-pink-500" fill="currentColor" viewBox="0 0 24 24"><rect width="10" height="10"/></svg>
+          Systems
+        </span>
       </div>
 
       <h3 class="text-xl mb-4 tracking-tight pr-24">
- GPT-based Workflow Automation (Ongoing)
-</h3>
+        GPT-based Workflow Automation (Ongoing)
+      </h3>
 
-  
       <p class="text-gray-600 dark:text-gray-300">Exploring the use of language models to structure and automate analytical decision workflows.</p>
 
-      <a href="example-report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 text-sm gold border border-gold rounded hover:bg-gold hover:text-white transition">View Full Report</a>
+      <a href="example-report.pdf" target="_blank" class="mt-4 inline-block px-4 py-2 text-sm gold border border-gold rounded hover:bg-gold hover:text-white transition transform group-hover:scale-105">
+        View Full Report
+      </a>
     </article>
 
   </div>
 </section>
+
 
 
 <!-- Skills -->
